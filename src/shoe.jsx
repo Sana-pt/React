@@ -4,6 +4,7 @@ import img from "./shoe.jpg";
 import img2 from "./earphones.jpg";
 import img3 from "./watch.jpg";
 import img4 from "./iphone.jpg";
+import { Link } from "react-router-dom";
 
 const products = [
   { id: 1, name: "Shoes", price: 100.0, image: img },
@@ -18,7 +19,9 @@ const ProductCard = () => {
       {products.map((product) => (
         <div key={product.id} style={styles.card}>
           <img src={product.image} alt={product.name} style={styles.image} />
-          <h3>{product.name}</h3>
+          <h3 style={styles.name}>{product.name}</h3>
+          <p style={styles.text}>Lorem ipsum dolor sit amet 
+            consectetur adipisicing elit.</p>
           <p style={styles.price}>Price: ${product.price}</p>
           
           <div style={styles.stars}>
@@ -29,7 +32,13 @@ const ProductCard = () => {
             <FaStar color="gold" size={20} />
           </div>
 
-          <button style={styles.button}>Buy Now</button>
+          <Link to='/full'><button style={{...styles.button,
+            background:product.id===1?"blue":
+            product.id===2?"purple":
+            product.id===3?"black":
+            product.id===4?"green":
+            "blue"
+          }}>Buy Now</button></Link>
         </div>
       ))}
     </div>
@@ -46,18 +55,23 @@ const styles = {
     flexWrap: "wrap",
   },
   card: {
+
     border: "1px solid #ddd",
     borderRadius: "15px",
     padding: "20px",
     width: "300px",
     height: "420px", 
     textAlign: "center",
-    backgroundColor: "white",
-    boxShadow: "4px 4px 15px rgba(0,0,0,0.1)",
+    backgroundColor: "#D3D3D3",
+    boxShadow: "10px 10px 25px rgba(0,0,0,0.1)",
     display: "flex",
     flexDirection: "column",
     alignItems: "center",
     justifyContent: "space-between",
+  },
+  text:{
+    color:"grey",
+     
   },
   image: {
     width: "120px",
@@ -83,6 +97,10 @@ const styles = {
     fontSize: "16px",
     
   },
+  name:{
+    fontSize:"25px",
+    fontWeight:"bold",
+  }
 };
 
 export default ProductCard;

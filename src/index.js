@@ -8,11 +8,18 @@ import Demos from './Demo2';
 import Task from './fulltask';
 import Component1 from './component1';
 import ProductCard from './shoe';
+import { BrowserRouter, Route, Routes } from 'react-router-dom';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
-    <ProductCard></ProductCard>
+    <BrowserRouter>
+    <Routes>
+      <Route path='P' element={<ProductCard></ProductCard>}></Route>
+      <Route path='Demo2' element={<Demos></Demos>}></Route>
+      <Route path='full' element={<Task></Task>}></Route>
+    </Routes>
+    </BrowserRouter>
   </React.StrictMode>
 );
 
