@@ -36,7 +36,7 @@ const ProductCard = () => {
             background:product.id===1?"blue":
             product.id===2?"purple":
             product.id===3?"black":
-            product.id===4?"green":
+            product.id===4?"orange":
             "blue"
           }}>Buy Now</button></Link>
         </div>
@@ -94,7 +94,9 @@ const styles = {
     borderRadius: "8px",
     border: "none",
     cursor: "pointer",
-    fontSize: "16px",
+    fontSize: "20px",
+    width: "300px",
+    height:"50px"
     
   },
   name:{
